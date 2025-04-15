@@ -1,20 +1,20 @@
 services:
-  api:
-    image: "leonarolivei/politks-api:1.0.0-SNAPSHOT"
-    build:
-      context: .
-    container_name: politks-api
-    depends_on:
-      - db
-    environment:
-      - DB_USERNAME=postgres
-      - DB_PASSWORD=postgres
-      - DB_URL=jdbc:postgresql://db:5432/politks
-      - HIBERNATE_GENERATION=update
-    ports:
-      - "8080:8080"
-    networks:
-      - politks-network
+  # api:
+  #   image: "leonarolivei/politks-api:1.0.0-SNAPSHOT"
+  #   build:
+  #     context: .
+  #   container_name: politks-api
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - DB_USERNAME=postgres
+  #     - DB_PASSWORD=postgres
+  #     - DB_URL=jdbc:postgresql://db:5432/politks
+  #     - HIBERNATE_GENERATION=update
+  #   ports:
+  #     - "8080:8080"
+  #   networks:
+  #     - politks-network
 
   db:
     image: "postgres:latest"
