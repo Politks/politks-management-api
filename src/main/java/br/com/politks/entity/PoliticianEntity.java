@@ -1,4 +1,4 @@
-package org.acme.entity;
+package br.com.politks.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Entity;
@@ -18,8 +18,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PoliticianEntity extends PanacheEntity {
   private String name;
-  private String phone;
-  private String email;
-  private String address;
-  private Long age;
+  private String photo;
+  private String fullname;
 }

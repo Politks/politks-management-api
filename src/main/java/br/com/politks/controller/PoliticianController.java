@@ -1,4 +1,4 @@
-package org.acme.controller;
+package br.com.politks.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.DELETE;
@@ -10,8 +10,8 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.acme.dto.PoliticianDTO;
-import org.acme.service.PoliticianService;
+import br.com.politks.dto.PoliticianDTO;
+import br.com.politks.service.PoliticianService;
 
 @Path("api/politician")
 public class PoliticianController {

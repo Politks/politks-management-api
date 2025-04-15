@@ -1,8 +1,8 @@
-package org.acme.repository;
+package br.com.politks.repository;
 
+import br.com.politks.entity.PoliticianEntity;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
-import org.acme.entity.PoliticianEntity;
 
 @ApplicationScoped
 public class PoliticianRepository implements PanacheRepository<PoliticianEntity> {}

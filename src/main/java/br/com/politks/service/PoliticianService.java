@@ -1,10 +1,10 @@
-package org.acme.service;
+package br.com.politks.service;
 
+import br.com.politks.dto.PoliticianDTO;
+import br.com.politks.mapper.PoliticianMapper;
+import br.com.politks.repository.PoliticianRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import java.util.List;
-import org.acme.dto.PoliticianDTO;
-import org.acme.mapper.PoliticianMapper;
-import org.acme.repository.PoliticianRepository;
 
 @ApplicationScoped
 public class PoliticianService {
