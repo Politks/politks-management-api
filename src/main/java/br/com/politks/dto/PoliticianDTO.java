@@ -1,3 +1,8 @@
 package br.com.politks.dto;
 
-public record PoliticianDTO(String name, String phone, String email, String address, Long age) {}
+public record PoliticianDTO(
+    Long id,
+    String name,
+    String photo,
+    String fullname
+) {}

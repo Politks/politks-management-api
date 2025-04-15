@@ -1,19 +1,19 @@
 package br.com.politks.controller;
 
-import br.com.politks.dto.PoliticianDTO;
-import br.com.politks.service.PoliticianService;
+import br.com.politks.dto.ElectionDTO;
+import br.com.politks.service.ElectionService;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-@Path("/api/politicians")
+@Path("/api/elections")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class PoliticianController {
-    private final PoliticianService service;
+public class ElectionController {
+    private final ElectionService service;
 
-    public PoliticianController(PoliticianService service) {
+    public ElectionController(ElectionService service) {
         this.service = service;
     }
 
@@ -30,7 +30,7 @@ public class PoliticianController {
 
     @POST
     @Transactional
-    public Response create(PoliticianDTO dto) {
+    public Response create(ElectionDTO dto) {
         return Response.status(Response.Status.CREATED)
             .entity(service.create(dto))
             .build();
@@ -39,7 +39,7 @@ public class PoliticianController {
     @PUT
     @Path("/{id}")
     @Transactional
-    public Response update(@PathParam("id") Long id, PoliticianDTO dto) {
+    public Response update(@PathParam("id") Long id, ElectionDTO dto) {
         return Response.ok(service.update(id, dto)).build();
     }
 
@@ -50,4 +50,4 @@ public class PoliticianController {
         service.delete(id);
         return Response.noContent().build();
     }
-}
+} 
