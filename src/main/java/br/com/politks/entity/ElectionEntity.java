@@ -2,6 +2,9 @@ package br.com.politks.entity;
 
 import java.util.List;
 
+import br.com.politks.enums.Municipality;
+import br.com.politks.enums.Position;
+import br.com.politks.enums.UF;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;

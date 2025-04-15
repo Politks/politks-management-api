@@ -1,4 +1,4 @@
-package br.com.politks.entity;
+package br.com.politks.enums;
 
 public enum ElectionResult {
     SECOND_TURN("Segundo Turno"),

@@ -1,4 +1,4 @@
-package br.com.politks.entity;
+package br.com.politks.enums;
 
 public enum Municipality {
     SAOPAULO("São Paulo");
