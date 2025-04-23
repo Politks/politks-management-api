@@ -17,10 +17,22 @@ public class PoliticianService {
     this.mapper = mapper;
   }
 
+  @Transactional
   public List<PoliticianDTO> findAll() {
     return repository.findAll().stream()
         .map(mapper::toDTO)
         .toList();
+  }
+  
+  @Transactional
+  public List<PoliticianDTO> findAllPaginated(int page, int size) {
+    return repository.findAll().page(page, size).stream()
+        .map(mapper::toDTO)
+        .toList();
+  }
+  
+  public long count() {
+    return repository.count();
   }
 
   public PoliticianDTO findById(Long id) {

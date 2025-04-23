@@ -1,5 +1,6 @@
 package br.com.politks.controller;
 
+import br.com.politks.dto.PaginationResponse;
 import br.com.politks.dto.PoliticianDTO;
 import br.com.politks.service.PoliticianService;
 import jakarta.transaction.Transactional;
@@ -18,8 +19,12 @@ public class PoliticianController {
     }
 
     @GET
-    public Response getAll() {
-        return Response.ok(service.findAll()).build();
+    public Response getAll(@QueryParam("page") @DefaultValue("0") int page, 
+                          @QueryParam("size") @DefaultValue("10") int size) {
+        var politicians = service.findAllPaginated(page, size);
+        var totalElements = service.count();
+        var paginationResponse = new PaginationResponse<>(politicians, page, size, totalElements);
+        return Response.ok(paginationResponse).build();
     }
 
     @GET
