@@ -1,6 +1,7 @@
 package br.com.politks.mapper;
 
 import br.com.politks.dto.PoliticianDTO;
+import br.com.politks.dto.PoliticianRequestDTO;
 import br.com.politks.entity.PoliticianEntity;
 import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Objects;
@@ -18,6 +19,14 @@ public class PoliticianMapper {
     }
 
     public PoliticianEntity toEntity(PoliticianDTO dto) {
+        return PoliticianEntity.builder()
+            .name(dto.name())
+            .photo(dto.photo())
+            .fullname(dto.fullname())
+            .build();
+    }
+    
+    public PoliticianEntity toEntity(PoliticianRequestDTO dto) {
         return PoliticianEntity.builder()
             .name(dto.name())
             .photo(dto.photo())

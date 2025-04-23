@@ -1,6 +1,7 @@
 package br.com.politks.service;
 
 import br.com.politks.dto.PoliticianDTO;
+import br.com.politks.dto.PoliticianRequestDTO;
 import br.com.politks.mapper.PoliticianMapper;
 import br.com.politks.repository.PoliticianRepository;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -44,6 +45,13 @@ public class PoliticianService {
   @Transactional
   public PoliticianDTO create(PoliticianDTO dto) {
     var entity = mapper.toEntity(dto);
+    repository.persist(entity);
+    return mapper.toDTO(entity);
+  }
+  
+  @Transactional
+  public PoliticianDTO createFromRequest(PoliticianRequestDTO requestDTO) {
+    var entity = mapper.toEntity(requestDTO);
     repository.persist(entity);
     return mapper.toDTO(entity);
   }

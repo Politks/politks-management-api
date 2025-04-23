@@ -2,6 +2,7 @@ package br.com.politks.controller;
 
 import br.com.politks.dto.PaginationResponse;
 import br.com.politks.dto.PoliticianDTO;
+import br.com.politks.dto.PoliticianRequestDTO;
 import br.com.politks.service.PoliticianService;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -35,9 +36,9 @@ public class PoliticianController {
 
     @POST
     @Transactional
-    public Response create(PoliticianDTO dto) {
+    public Response create(PoliticianRequestDTO requestDTO) {
         return Response.status(Response.Status.CREATED)
-            .entity(service.create(dto))
+            .entity(service.createFromRequest(requestDTO))
             .build();
     }
 
