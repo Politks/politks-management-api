@@ -39,4 +39,10 @@ public class PoliticianMapper {
         entity.setPhoto(dto.photo());
         entity.setFullname(dto.fullname());
     }
+    
+    public void updateEntity(PoliticianEntity entity, PoliticianRequestDTO dto) {
+        entity.setName(dto.name());
+        entity.setPhoto(dto.photo());
+        entity.setFullname(dto.fullname());
+    }
 }

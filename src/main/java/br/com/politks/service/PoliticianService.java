@@ -64,6 +64,15 @@ public class PoliticianService {
     repository.persist(entity);
     return mapper.toDTO(entity);
   }
+  
+  @Transactional
+  public PoliticianDTO updateFromRequest(Long id, PoliticianRequestDTO requestDTO) {
+    var entity = repository.findByIdOptional(id)
+        .orElseThrow(() -> new RuntimeException("Politician not found"));
+    mapper.updateEntity(entity, requestDTO);
+    repository.persist(entity);
+    return mapper.toDTO(entity);
+  }
 
   @Transactional
   public void delete(Long id) {

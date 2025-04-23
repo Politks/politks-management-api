@@ -45,8 +45,8 @@ public class PoliticianController {
     @PUT
     @Path("/{id}")
     @Transactional
-    public Response update(@PathParam("id") Long id, PoliticianDTO dto) {
-        return Response.ok(service.update(id, dto)).build();
+    public Response update(@PathParam("id") Long id, PoliticianRequestDTO requestDTO) {
+        return Response.ok(service.updateFromRequest(id, requestDTO)).build();
     }
 
     @DELETE
