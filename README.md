@@ -5,18 +5,19 @@ API para gerenciamento de políticos, candidatos e eleições.
 ## Tecnologias Utilizadas
 
 - Java 17
-- Quarkus
+- Quarkus 3.x
 - PostgreSQL
 - Hibernate ORM
-- Maven
+- RESTEasy
+- JUnit 5
 - Docker
 
-## Requisitos
+## Pré-requisitos
 
 - Java 17 ou superior
-- Maven 3.8 ou superior
-- Docker e Docker Compose
+- Maven 3.8.x ou superior
 - PostgreSQL 14 ou superior
+- Docker (opcional)
 
 ## Configuração do Ambiente
 
@@ -26,47 +27,81 @@ git clone https://github.com/seu-usuario/politks-management-api.git
 cd politks-management-api
 ```
 
-2. Configure as variáveis de ambiente:
+2. Configure o banco de dados PostgreSQL:
 ```bash
-cp .env.example .env
+# Usando Docker
+docker run --name postgres-politks -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=politks -p 5432:5432 -d postgres:14
+
+# Ou configure manualmente um banco PostgreSQL local
 ```
 
-3. Inicie o banco de dados PostgreSQL usando Docker:
-```bash
-docker-compose up -d
+3. Configure as variáveis de ambiente no arquivo `application.properties`:
+```properties
+quarkus.datasource.username=seu_usuario
+quarkus.datasource.password=sua_senha
+quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/politks
 ```
 
-4. Execute a aplicação em modo de desenvolvimento:
+## Executando a Aplicação
+
+### Modo de Desenvolvimento
+
 ```bash
 ./mvnw quarkus:dev
+```
+
+### Modo de Produção
+
+```bash
+./mvnw package
+java -jar target/quarkus-app/quarkus-run.jar
 ```
 
 ## Endpoints da API
 
 ### Políticos
+
 - `GET /api/politicians` - Lista todos os políticos
-- `GET /api/politicians/{id}` - Obtém um político por ID
+- `GET /api/politicians/{id}` - Obtém um político específico
 - `POST /api/politicians` - Cria um novo político
-- `PUT /api/politicians/{id}` - Atualiza um político existente
+- `PUT /api/politicians/{id}` - Atualiza um político
 - `DELETE /api/politicians/{id}` - Remove um político
 
+### Eleições
+
+- `GET /api/elections` - Lista todas as eleições
+- `GET /api/elections/{id}` - Obtém uma eleição específica
+- `POST /api/elections` - Cria uma nova eleição
+- `PUT /api/elections/{id}` - Atualiza uma eleição
+- `DELETE /api/elections/{id}` - Remove uma eleição
+
 ### Candidatos
+
 - `GET /api/candidates` - Lista todos os candidatos
-- `GET /api/candidates/{id}` - Obtém um candidato por ID
+- `GET /api/candidates/{id}` - Obtém um candidato específico
 - `POST /api/candidates` - Cria um novo candidato
-- `PUT /api/candidates/{id}` - Atualiza um candidato existente
+- `PUT /api/candidates/{id}` - Atualiza um candidato
 - `DELETE /api/candidates/{id}` - Remove um candidato
 
-### Eleições
-- `GET /api/elections` - Lista todas as eleições
-- `GET /api/elections/{id}` - Obtém uma eleição por ID
-- `POST /api/elections` - Cria uma nova eleição
-- `PUT /api/elections/{id}` - Atualiza uma eleição existente
-- `DELETE /api/elections/{id}` - Remove uma eleição
+## Testes
+
+Para executar os testes:
+
+```bash
+./mvnw test
+```
+
+## Contribuindo
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`)
+4. Push para a branch (`git push origin feature/nova-feature`)
+5. Crie um Pull Request
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 📚 Documentação
 
@@ -120,10 +155,11 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👥 Autores
 
-- Leonardo Freitas - [@leonardo.freitas](https://github.com/leo3965)
+- Seu Nome - [@seu-usuario](https://github.com/seu-usuario)
 
 ## 🙏 Agradecimentos
 
-- Erick
-- Thiago
+- Quarkus Team
+- Hibernate Team
+- PostgreSQL Team
 

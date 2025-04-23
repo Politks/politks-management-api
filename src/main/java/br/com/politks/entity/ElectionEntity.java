@@ -27,6 +27,6 @@ public class ElectionEntity extends PanacheEntity {
   @Enumerated(EnumType.STRING)
   private Position position;
 
-  @OneToMany(mappedBy = "electionId")
+  @OneToMany(mappedBy = "election")
   private List<CandidateEntity> candidates;
 }
