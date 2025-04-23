@@ -43,15 +43,16 @@ create table candidate (
 
 -- Inserir políticos
 INSERT INTO politician (id, full_name, name, photo) VALUES
-(1, 'João da Silva Santos', 'João Silva', 'https://example.com/photos/joao.jpg'),
-(2, 'Maria Oliveira Pereira', 'Maria Oliveira', 'https://example.com/photos/maria.jpg');
+(1, 'RICARDO NUNES', 'RICARDO NUNES', 'https://example.com/photos/joao.jpg'),
+(2, 'GUILHERME BOULOS', 'GUILHERME BOULOS', 'https://example.com/photos/maria.jpg');
 
 -- Inserir eleições
 INSERT INTO election (id, municipality, position, uf, election_date) VALUES
-(1, 'SAO_PAULO', 'PREFEITO', 'SP', '2024-10-06'),
-(2, 'SAO_PAULO', 'VEREADOR', 'SP', '2024-10-06');
+(1, 'SAO_PAULO', 'PREFEITO', 'SP', '2024-10-27'),
+(2, 'SAO_PAULO', 'PREFEITO', 'SP', '2024-10-06'),
+(3, 'SAO_PAULO', 'VEREADOR', 'SP', '2024-10-06');
 
 -- Inserir candidatos
 INSERT INTO candidate (id, politician_id, election_id, votes, number, result) VALUES
-(1, 1, 1, 1500000, 12345, 'ELECTED'),
-(2, 2, 2, 50000, 54321, 'NOT_ELECTED');
+(1, 1, 1, 1500000, 3393110, 'ELECTED'),
+(2, 2, 1, 50000, 2323901, 'NOT_ELECTED');
