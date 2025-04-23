@@ -34,7 +34,7 @@ create table candidate (
     election_id bigint not null,
     votes integer not null,
     number integer not null,
-    result varchar(255) check (result in ('SECOND_TURN', 'NOT_ELECTED', 'ELECTED')),
+    result varchar(255) check (result in ('SECOND_TURN', 'NOT_ELECTED', 'ELECTED', 'ELECTED_BY_AVERAGE', 'ELECTED_BY_QP')),
     primary key (id),
     constraint fk_candidate_politician foreign key (politician_id) references politician(id),
     constraint fk_candidate_election foreign key (election_id) references election(id),
