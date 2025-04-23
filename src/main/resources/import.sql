@@ -43,16 +43,34 @@ create table candidate (
 
 -- Inserir políticos
 INSERT INTO politician (id, full_name, name, photo) VALUES
-(1, 'RICARDO NUNES', 'RICARDO NUNES', 'https://example.com/photos/joao.jpg'),
-(2, 'GUILHERME BOULOS', 'GUILHERME BOULOS', 'https://example.com/photos/maria.jpg');
+(1, 'RICARDO NUNES', 'RICARDO NUNES', 'https://example.com/photos/ricardo.jpg'),
+(2, 'GUILHERME BOULOS', 'GUILHERME BOULOS', 'https://example.com/photos/guilherme.jpg'),
+(3, 'PABLO MARÇAL', 'PABLO MARÇAL', 'https://example.com/photos/marta.jpg'),
+(4, 'TABATA AMARAL', 'TABATA AMARAL', 'https://example.com/photos/tabata.jpg'),
+(5, 'DATENA', 'DATENA', 'https://example.com/photos/arthur.jpg'),
+(6, 'MARINA HELENA', 'MARINA HELENA', 'https://example.com/photos/kim.jpg'),
+(7, 'RICARDO SENESE', 'RICARDO SENESE', 'https://example.com/photos/celso.jpg'),
+(8, 'ALTINO PRAZERES', 'ALTINO PRAZERES', 'https://example.com/photos/andrea.jpg'),
+(9, 'JOÃO PIMENTA', 'JOÃO PIMENTA', 'https://example.com/photos/vera.jpg'),
+(10, 'BEBETO HADDAD', 'BEBETO HADDAD', 'https://example.com/photos/jilmar.jpg');
 
 -- Inserir eleições
 INSERT INTO election (id, municipality, position, uf, election_date) VALUES
-(1, 'SAO_PAULO', 'PREFEITO', 'SP', '2024-10-27'),
-(2, 'SAO_PAULO', 'PREFEITO', 'SP', '2024-10-06'),
+(1, 'SAO_PAULO', 'PREFEITO', 'SP', '2024-10-06'),
+(2, 'SAO_PAULO', 'PREFEITO', 'SP', '2024-10-27'),
 (3, 'SAO_PAULO', 'VEREADOR', 'SP', '2024-10-06');
 
 -- Inserir candidatos
 INSERT INTO candidate (id, politician_id, election_id, votes, number, result) VALUES
-(1, 1, 1, 1500000, 3393110, 'ELECTED'),
-(2, 2, 1, 50000, 2323901, 'NOT_ELECTED');
+(1, 1, 1, 3393110, 15, 'SECOND_TURN'),
+(2, 2, 1, 2323901, 50, 'SECOND_TURN'),
+(3, 3, 1, 1719274, 28, 'NOT_ELECTED'),
+(4, 4, 1, 605552, 40, 'NOT_ELECTED'),
+(5, 5, 1, 112344, 45, 'NOT_ELECTED'),
+(6, 6, 1, 84212, 30, 'NOT_ELECTED'),
+(7, 7, 1, 5593, 80, 'NOT_ELECTED'),
+(8, 8, 1, 3017, 16, 'NOT_ELECTED'),
+(9, 9, 1, 960, 29, 'NOT_ELECTED'),
+(10, 10, 1, 833, 27, 'NOT_ELECTED'),
+(11, 1, 2, 1801139, 15, 'ELECTED'),
+(12, 2, 2, 1776127, 50, 'NOT_ELECTED');
