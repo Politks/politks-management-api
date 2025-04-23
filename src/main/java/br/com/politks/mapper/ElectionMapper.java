@@ -1,6 +1,7 @@
 package br.com.politks.mapper;
 
 import br.com.politks.dto.ElectionDTO;
+import br.com.politks.dto.ElectionRequestDTO;
 import br.com.politks.entity.ElectionEntity;
 import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Objects;
@@ -32,8 +33,20 @@ public class ElectionMapper {
         updateEntity(entity, dto);
         return entity;
     }
+    
+    public ElectionEntity toEntity(ElectionRequestDTO dto) {
+        ElectionEntity entity = new ElectionEntity();
+        updateEntity(entity, dto);
+        return entity;
+    }
 
     public void updateEntity(ElectionEntity entity, ElectionDTO dto) {
+        entity.setUf(dto.uf());
+        entity.setMunicipality(dto.municipality());
+        entity.setPosition(dto.position());
+    }
+    
+    public void updateEntity(ElectionEntity entity, ElectionRequestDTO dto) {
         entity.setUf(dto.uf());
         entity.setMunicipality(dto.municipality());
         entity.setPosition(dto.position());

@@ -1,6 +1,8 @@
 package br.com.politks.controller;
 
 import br.com.politks.dto.ElectionDTO;
+import br.com.politks.dto.ElectionRequestDTO;
+import br.com.politks.dto.PaginationResponse;
 import br.com.politks.service.ElectionService;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -18,8 +20,12 @@ public class ElectionController {
     }
 
     @GET
-    public Response getAll() {
-        return Response.ok(service.findAll()).build();
+    public Response getAll(@QueryParam("page") @DefaultValue("0") int page, 
+                          @QueryParam("size") @DefaultValue("10") int size) {
+        var elections = service.findAllPaginated(page, size);
+        var totalElements = service.count();
+        var paginationResponse = new PaginationResponse<>(elections, page, size, totalElements);
+        return Response.ok(paginationResponse).build();
     }
 
     @GET
@@ -30,17 +36,17 @@ public class ElectionController {
 
     @POST
     @Transactional
-    public Response create(ElectionDTO dto) {
+    public Response create(ElectionRequestDTO requestDTO) {
         return Response.status(Response.Status.CREATED)
-            .entity(service.create(dto))
+            .entity(service.createFromRequest(requestDTO))
             .build();
     }
 
     @PUT
     @Path("/{id}")
     @Transactional
-    public Response update(@PathParam("id") Long id, ElectionDTO dto) {
-        return Response.ok(service.update(id, dto)).build();
+    public Response update(@PathParam("id") Long id, ElectionRequestDTO requestDTO) {
+        return Response.ok(service.updateFromRequest(id, requestDTO)).build();
     }
 
     @DELETE
