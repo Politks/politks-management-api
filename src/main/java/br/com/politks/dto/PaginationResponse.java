@@ -3,49 +3,49 @@ package br.com.politks.dto;
 import java.util.List;
 
 public class PaginationResponse<T> {
-    private List<T> content;
-    private int page;
-    private int size;
-    private long totalElements;
-    private int totalPages;
-    private boolean first;
-    private boolean last;
+  private List<T> content;
+  private int page;
+  private int size;
+  private long totalElements;
+  private int totalPages;
+  private boolean first;
+  private boolean last;
 
-    public PaginationResponse(List<T> content, int page, int size, long totalElements) {
-        this.content = content;
-        this.page = page;
-        this.size = size;
-        this.totalElements = totalElements;
-        this.totalPages = (int) Math.ceil((double) totalElements / size);
-        this.first = page == 0;
-        this.last = page >= totalPages - 1;
-    }
+  public PaginationResponse(List<T> content, int page, int size, long totalElements) {
+    this.content = content;
+    this.page = page;
+    this.size = size;
+    this.totalElements = totalElements;
+    this.totalPages = (int) Math.ceil((double) totalElements / size);
+    this.first = page == 0;
+    this.last = page >= totalPages - 1;
+  }
 
-    public List<T> getContent() {
-        return content;
-    }
+  public List<T> getContent() {
+    return content;
+  }
 
-    public int getPage() {
-        return page;
-    }
+  public int getPage() {
+    return page;
+  }
 
-    public int getSize() {
-        return size;
-    }
+  public int getSize() {
+    return size;
+  }
 
-    public long getTotalElements() {
-        return totalElements;
-    }
+  public long getTotalElements() {
+    return totalElements;
+  }
 
-    public int getTotalPages() {
-        return totalPages;
-    }
+  public int getTotalPages() {
+    return totalPages;
+  }
 
-    public boolean isFirst() {
-        return first;
-    }
+  public boolean isFirst() {
+    return first;
+  }
 
-    public boolean isLast() {
-        return last;
-    }
-} 
+  public boolean isLast() {
+    return last;
+  }
+}

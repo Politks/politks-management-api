@@ -20,24 +20,21 @@ public class PoliticianService {
 
   @Transactional
   public List<PoliticianDTO> findAll() {
-    return repository.findAll().stream()
-        .map(mapper::toDTO)
-        .toList();
+    return repository.findAll().stream().map(mapper::toDTO).toList();
   }
-  
+
   @Transactional
   public List<PoliticianDTO> findAllPaginated(int page, int size) {
-    return repository.findAll().page(page, size).stream()
-        .map(mapper::toDTO)
-        .toList();
+    return repository.findAll().page(page, size).stream().map(mapper::toDTO).toList();
   }
-  
+
   public long count() {
     return repository.count();
   }
 
   public PoliticianDTO findById(Long id) {
-    return repository.findByIdOptional(id)
+    return repository
+        .findByIdOptional(id)
         .map(mapper::toDTO)
         .orElseThrow(() -> new RuntimeException("Politician not found"));
   }
@@ -48,7 +45,7 @@ public class PoliticianService {
     repository.persist(entity);
     return mapper.toDTO(entity);
   }
-  
+
   @Transactional
   public PoliticianDTO createFromRequest(PoliticianRequestDTO requestDTO) {
     var entity = mapper.toEntity(requestDTO);
@@ -58,17 +55,21 @@ public class PoliticianService {
 
   @Transactional
   public PoliticianDTO update(Long id, PoliticianDTO dto) {
-    var entity = repository.findByIdOptional(id)
-        .orElseThrow(() -> new RuntimeException("Politician not found"));
+    var entity =
+        repository
+            .findByIdOptional(id)
+            .orElseThrow(() -> new RuntimeException("Politician not found"));
     mapper.updateEntity(entity, dto);
     repository.persist(entity);
     return mapper.toDTO(entity);
   }
-  
+
   @Transactional
   public PoliticianDTO updateFromRequest(Long id, PoliticianRequestDTO requestDTO) {
-    var entity = repository.findByIdOptional(id)
-        .orElseThrow(() -> new RuntimeException("Politician not found"));
+    var entity =
+        repository
+            .findByIdOptional(id)
+            .orElseThrow(() -> new RuntimeException("Politician not found"));
     mapper.updateEntity(entity, requestDTO);
     repository.persist(entity);
     return mapper.toDTO(entity);
