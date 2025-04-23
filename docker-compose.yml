@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # api:
   #   image: "leonarolivei/politks-api:1.0.0-SNAPSHOT"
