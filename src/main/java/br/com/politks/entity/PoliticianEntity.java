@@ -1,6 +1,7 @@
 package br.com.politks.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -19,5 +20,6 @@ import lombok.NoArgsConstructor;
 public class PoliticianEntity extends PanacheEntity {
   private String name;
   private String photo;
-  private String fullname;
+  @Column(name = "full_name")
+  private String fullName;
 }

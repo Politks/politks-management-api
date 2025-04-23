@@ -10,14 +10,14 @@ import java.util.Objects;
 public class PoliticianMapper {
   public PoliticianDTO toDTO(PoliticianEntity entity) {
     Objects.requireNonNull(entity);
-    return new PoliticianDTO(entity.id, entity.getName(), entity.getPhoto(), entity.getFullname());
+    return new PoliticianDTO(entity.id, entity.getName(), entity.getPhoto(), entity.getFullName());
   }
 
   public PoliticianEntity toEntity(PoliticianDTO dto) {
     return PoliticianEntity.builder()
         .name(dto.name())
         .photo(dto.photo())
-        .fullname(dto.fullname())
+        .fullName(dto.fullname())
         .build();
   }
 
@@ -25,19 +25,19 @@ public class PoliticianMapper {
     return PoliticianEntity.builder()
         .name(dto.name())
         .photo(dto.photo())
-        .fullname(dto.fullname())
+        .fullName(dto.fullname())
         .build();
   }
 
   public void updateEntity(PoliticianEntity entity, PoliticianDTO dto) {
     entity.setName(dto.name());
     entity.setPhoto(dto.photo());
-    entity.setFullname(dto.fullname());
+    entity.setFullName(dto.fullname());
   }
 
   public void updateEntity(PoliticianEntity entity, PoliticianRequestDTO dto) {
     entity.setName(dto.name());
     entity.setPhoto(dto.photo());
-    entity.setFullname(dto.fullname());
+    entity.setFullName(dto.fullname());
   }
 }
