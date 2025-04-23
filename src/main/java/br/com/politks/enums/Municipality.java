@@ -1,7 +1,7 @@
 package br.com.politks.enums;
 
 public enum Municipality {
-    SAOPAULO("São Paulo");
+    SAO_PAULO("São Paulo");
 
     private final String name;
 
