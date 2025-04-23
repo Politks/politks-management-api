@@ -22,6 +22,7 @@ public class ElectionMapper {
         entity.getUf(),
         entity.getMunicipality(),
         entity.getPosition(),
+        entity.getElectionDate(),
         entity.getCandidates() != null
             ? entity.getCandidates().stream()
                 .map(candidateMapper::toDTO)
@@ -45,11 +46,13 @@ public class ElectionMapper {
     entity.setUf(dto.uf());
     entity.setMunicipality(dto.municipality());
     entity.setPosition(dto.position());
+    entity.setElectionDate(dto.electionDate());
   }
 
   public void updateEntity(ElectionEntity entity, ElectionRequestDTO dto) {
     entity.setUf(dto.uf());
     entity.setMunicipality(dto.municipality());
     entity.setPosition(dto.position());
+    entity.setElectionDate(dto.electionDate());
   }
 }
