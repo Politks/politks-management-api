@@ -155,11 +155,9 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👥 Autores
 
-- Seu Nome - [@seu-usuario](https://github.com/seu-usuario)
+- Freitas, Leonardo - [@leo3965](https://github.com/leo3965)
 
 ## 🙏 Agradecimentos
 
-- Quarkus Team
-- Hibernate Team
-- PostgreSQL Team
-
+- Erick
+- Thiago
